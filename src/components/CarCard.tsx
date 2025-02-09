@@ -1,7 +1,5 @@
-import Image from 'next/image';
 import Link from 'next/link';
 import { Car } from '@/services/api';
-import DefaultCarImage from '/public/images/default-car.jpg';
 
 interface CarCardProps {
   car: Car;

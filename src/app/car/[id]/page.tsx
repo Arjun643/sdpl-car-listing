@@ -22,7 +22,8 @@ export default function CarDetails() {
         } else {
           setCar(result);
         }
-      } catch (err) {
+      } catch (error) {
+        console.error(error);
         setError('Failed to load car details');
       } finally {
         setLoading(false);

@@ -30,22 +30,23 @@ export default function Home() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  const fetchCars = async () => {
+  const fetchCars = useCallback(async () => {
     try {
       setLoading(true);
       const result = await getCars(page, ITEMS_PER_PAGE, search, filters, sort || undefined);
       setCars(result.cars);
       setTotal(result.total);
-    } catch (err) {
+    } catch (error) {
+      console.error(error);
       setError(true);
     } finally {
       setLoading(false);
     }
-  };
+  }, [page, ITEMS_PER_PAGE, search, filters, sort]);
 
   useEffect(() => {
     fetchCars();
-  }, [page, search, filters, sort]);
+  }, [fetchCars]);
 
   return (
     <div className="container mx-auto px-4 py-8">

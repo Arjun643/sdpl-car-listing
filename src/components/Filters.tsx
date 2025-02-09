@@ -1,8 +1,16 @@
 import { useState } from 'react';
 
 interface FiltersProps {
-  onFilterChange: (filters: any) => void;
+  onFilterChange: (filters: FilterValues) => void;
   onSortChange: (sort: { field: 'price' | 'year'; order: 'asc' | 'desc' }) => void;
+}
+
+interface FilterValues {
+  make?: string;
+  model?: string;
+  year?: string | number;
+  minPrice?: string | number;
+  maxPrice?: string | number;
 }
 
 export default function Filters({ onFilterChange, onSortChange }: FiltersProps) {
