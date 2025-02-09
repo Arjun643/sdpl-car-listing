@@ -46,7 +46,7 @@ A modern, responsive web application for browsing and filtering car listings, bu
 - **State Management**: React Hooks
 - **API Integration**: REST API
 - **Testing**: Jest & React Testing Library
-- **Deployment**: Docker support
+- **Deployment**: Vercel
 
 ## 📖 Pagination Implementation
 
@@ -131,6 +131,82 @@ npm start
   - Year (Newest First)
   - Year (Oldest First)
 
+## 🚀 Deployment
+
+### Vercel Deployment Guide
+
+1. **Push to GitHub**
+```bash
+git init
+git add .
+git commit -m "Initial commit"
+git remote add origin https://github.com/yourusername/car-listings.git
+git push -u origin main
+```
+
+2. **Deploy on Vercel**
+- Sign up/Login at [Vercel](https://vercel.com)
+- Click "New Project"
+- Import your GitHub repository
+- Configure project settings:
+  - Framework Preset: Next.js
+  - Root Directory: ./
+  - Build Command: `npm run build`
+  - Output Directory: .next
+
+3. **Environment Variables** (if needed)
+- Go to Project Settings > Environment Variables
+- Add the following variables:
+```
+NEXT_PUBLIC_API_URL=your_api_url
+```
+
+4. **Automatic Deployments**
+  - Vercel automatically deploys when you push to main
+  - Preview deployments for pull requests
+  - Easy rollbacks if needed
+
+### Deployment Features
+
+- **Automatic HTTPS**: Vercel provides automatic SSL certificates
+- **Global CDN**: Your app is served from edge locations worldwide
+- **Analytics**: Built-in analytics and performance monitoring
+- **Domain Setup**: 
+  - Go to Project Settings > Domains
+  - Add your custom domain
+  - Follow DNS configuration instructions
+
+### Deployment Commands
+
+```bash
+# Install Vercel CLI
+npm i -g vercel
+
+# Login to Vercel
+vercel login
+
+# Deploy to production
+vercel --prod
+
+# Preview deployment
+vercel
+```
+
+### Monitoring & Logs
+
+- Visit Vercel Dashboard > Your Project
+- Check Deployments tab for deployment history
+- View Runtime Logs for debugging
+- Monitor Performance metrics
+
+### Troubleshooting
+
+If deployment fails:
+1. Check build logs in Vercel dashboard
+2. Verify environment variables
+3. Ensure all dependencies are listed in package.json
+4. Test build locally with `npm run build`
+
 ## 🎯 Future Enhancements
 
 - Advanced pagination options
@@ -153,16 +229,10 @@ The application is fully responsive and optimized for:
 npm test
 ```
 
-## 🐳 Docker Deployment
-
-```bash
-docker-compose up
-```
-
 ## 📄 License
 
 This project is licensed under the MIT License.
 
 ---
 
-Built with ❤️ by [Your Name]
+Built with ❤️ by [Arjun Yadav]
