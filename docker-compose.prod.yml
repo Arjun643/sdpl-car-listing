@@ -1,0 +1,13 @@
+services:
+  web:
+    build: 
+      context: .
+      dockerfile: Dockerfile.prod
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+      - HOSTNAME=0.0.0.0
+    restart: always
+
+  # Remove traefik for now to simplify 

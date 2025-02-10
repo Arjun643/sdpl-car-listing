@@ -92,7 +92,6 @@ export const getCars = async (
         );
       }
       if (filters.year) {
-        // Convert year to number for comparison
         const filterYear = Number(filters.year);
         cars = cars.filter(car => car.year === filterYear);
       }
@@ -146,7 +145,6 @@ export const getCarById = async (id: string): Promise<Car | null> => {
       price: parseFloat(apiCar.price.replace('$', '')),
       description: `${apiCar.car_model_year} ${apiCar.car} ${apiCar.car_model} - ${apiCar.car_color}`,
       images: [
-        // Fallback to a static placeholder if Unsplash fails
         '/images/car-placeholder.jpg',
       ],
       specifications: {

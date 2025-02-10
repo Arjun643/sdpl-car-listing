@@ -1,238 +1,151 @@
-# Car Listings Platform
+# SDPL Car Listing Application
 
-A modern, responsive web application for browsing and filtering car listings, built with Next.js 13, TypeScript, and Tailwind CSS.
-
-![Car Listings Platform Screenshot](screenshot.png)
+A modern car listing application built with Next.js, TypeScript, and Tailwind CSS.
 
 ## 🚀 Features
 
-- **Advanced Search & Filtering**
-  - Search by make, model, and year
-  - Filter by price range
-  - Sort by price and year
-  - Real-time filtering without page reload
+- 🔍 Advanced search with filters
+- 📱 Responsive design for all devices
+- 🖼️ Image carousel for car details
+- ⚡ Server-side rendering
+- 🧪 Comprehensive test coverage
+- 🐳 Docker support
 
-- **Smart Pagination**
-  - Server-side pagination using react-js-pagination
-  - Customizable items per page
-  - Dynamic page numbers
-  - First/Last page navigation
-  - Responsive pagination controls
+## 🛠️ Tech Stack
 
-- **Responsive Design**
-  - Mobile-first approach
-  - Smooth transitions and animations
-  - Clean and modern UI
-  - Optimized for all screen sizes
+- Next.js 15
+- TypeScript
+- Tailwind CSS
+- Jest & React Testing Library
+- Docker
 
-- **Performance Optimized**
-  - Server-side rendering with Next.js
-  - Image optimization
-  - Lazy loading components
-  - Efficient state management
+## 🏃‍♂️ Getting Started
 
-- **User Experience**
-  - Intuitive interface
-  - Loading states with skeletons
-  - Error handling with user feedback
-  - Smooth animations and transitions
+### Local Development
 
-## 🛠️ Technical Stack
-
-- **Frontend Framework**: Next.js 15 (App Router)
-- **Language**: TypeScript
-- **Styling**: Tailwind CSS
-- **Pagination**: react-js-pagination
-- **State Management**: React Hooks
-- **API Integration**: REST API
-- **Testing**: Jest & React Testing Library
-- **Deployment**: Vercel
-
-## 📖 Pagination Implementation
-
-The application uses `react-js-pagination` for efficient data pagination:
-
-```typescript
-import Pagination from 'react-js-pagination';
-
-// Pagination configuration
-const ITEMS_PER_PAGE = 12;
-const [page, setPage] = useState(1);
-const [total, setTotal] = useState(0);
-
-// Pagination component
-<Pagination
-  activePage={page}
-  itemsCountPerPage={ITEMS_PER_PAGE}
-  totalItemsCount={total}
-  pageRangeDisplayed={5}
-  onChange={handlePageChange}
-  itemClass="px-3 py-1 mx-1 border rounded hover:bg-gray-100"
-  activeClass="bg-blue-500 text-white hover:bg-blue-600"
-  disabledClass="opacity-50 cursor-not-allowed"
-  linkClass="cursor-pointer"
-/>
+1. Clone the repository:
+```bash
+git clone <your-repo-url>
+cd sdpl-car-listing
 ```
 
-### Pagination Features:
-- Dynamic page calculation based on total items
-- Customizable styling with Tailwind CSS
-- Responsive design for all screen sizes
-- Keyboard navigation support
-- Loading states during page transitions
-- SEO-friendly URL parameters
-
-## 🏗️ Architecture
-
-The application follows a clean and modular architecture:
-
-```
-src/
-├── app/                 # Next.js 15 app router pages
-│   ├── page.tsx        # Home page with pagination
-│   └── car/[id]/       # Individual car details
-├── components/         
-│   ├── CarCard.tsx     # Car listing card
-│   ├── Filters.tsx     # Search and filter controls
-│   └── LoadingSkeleton.tsx  # Loading states
-├── services/           
-│   └── api.ts          # API integration
-└── types/              # TypeScript definitions
-```
-
-## 🚀 Getting Started
-
-1. **Install dependencies**
+2. Install dependencies:
 ```bash
 npm install
-npm install react-js-pagination
 ```
 
-2. **Run development server**
+3. Run development server:
 ```bash
 npm run dev
 ```
 
-3. **Build for production**
-```bash
-npm run build
-npm start
-```
-
-## 🔍 Search & Filter Implementation
-
-- **Real-time Search**: Updates results as user types
-- **Price Range Filter**: Min and max price selection
-- **Year Filter**: Filter cars by manufacturing year
-- **Make/Model Filter**: Filter by car make and model
-- **Sort Options**: 
-  - Price (Low to High)
-  - Price (High to Low)
-  - Year (Newest First)
-  - Year (Oldest First)
-
-## 🚀 Deployment
-
-### Vercel Deployment Guide
-
-1. **Push to GitHub**
-```bash
-git init
-git add .
-git commit -m "Initial commit"
-git remote add origin https://github.com/yourusername/car-listings.git
-git push -u origin main
-```
-
-2. **Deploy on Vercel**
-- Sign up/Login at [Vercel](https://vercel.com)
-- Click "New Project"
-- Import your GitHub repository
-- Configure project settings:
-  - Framework Preset: Next.js
-  - Root Directory: ./
-  - Build Command: `npm run build`
-  - Output Directory: .next
-
-3. **Environment Variables** (if needed)
-- Go to Project Settings > Environment Variables
-- Add the following variables:
-```
-NEXT_PUBLIC_API_URL=your_api_url
-```
-
-4. **Automatic Deployments**
-  - Vercel automatically deploys when you push to main
-  - Preview deployments for pull requests
-  - Easy rollbacks if needed
-
-### Deployment Features
-
-- **Automatic HTTPS**: Vercel provides automatic SSL certificates
-- **Global CDN**: Your app is served from edge locations worldwide
-- **Analytics**: Built-in analytics and performance monitoring
-- **Domain Setup**: 
-  - Go to Project Settings > Domains
-  - Add your custom domain
-  - Follow DNS configuration instructions
-
-### Deployment Commands
+### 🐳 Docker Setup
 
 ```bash
-# Install Vercel CLI
-npm i -g vercel
+# Build and run with Docker
+docker-compose up --build
 
-# Login to Vercel
-vercel login
-
-# Deploy to production
-vercel --prod
-
-# Preview deployment
-vercel
+# Stop containers
+docker-compose down
 ```
 
-### Monitoring & Logs
+### 🧪 Testing
 
-- Visit Vercel Dashboard > Your Project
-- Check Deployments tab for deployment history
-- View Runtime Logs for debugging
-- Monitor Performance metrics
+```bash
+# Run all tests
+npm test
 
-### Troubleshooting
+# Run with coverage
+npm test -- --coverage
+```
 
-If deployment fails:
-1. Check build logs in Vercel dashboard
-2. Verify environment variables
-3. Ensure all dependencies are listed in package.json
-4. Test build locally with `npm run build`
+## 🌐 Deployment
 
-## 🎯 Future Enhancements
+This application is deployed on Vercel. The live version can be accessed at:
+[Live Demo](your-vercel-url)
 
-- Advanced pagination options
-- Infinite scroll alternative
-- Save pagination preferences
-- Custom items per page
-- Jump to page functionality
+### Automatic Deployments
+- Connected to GitHub repository
+- Automatic deployments on main branch updates
+- Preview deployments for pull requests
+
+## 🎯 Design Choices
+
+1. **Architecture**
+   - Next.js App Router for modern routing
+   - TypeScript for type safety
+   - Tailwind for utility-first styling
+
+2. **State Management**
+   - React hooks for local state
+   - URL parameters for shareable filters
+
+3. **Performance**
+   - Server-side rendering with Next.js
+   - Image optimization using next/image
+   - Pagination for large datasets
+
+## 🚧 Project Structure
+
+```
+src/
+├── app/                # Next.js pages
+├── components/         # Reusable components
+├── services/          # API services
+├── utils/             # Utility functions
+└── __tests__/         # Test files
+```
+
+## 🔄 Development Workflow
+
+1. Create feature branch
+2. Make changes
+3. Run tests
+4. Create pull request
+5. Automatic preview deployment
+6. Review & merge
+7. Automatic production deployment
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create your feature branch
+3. Commit your changes
+4. Push to the branch
+5. Create a Pull Request
+
+## 📝 Environment Variables
+
+```env
+# Not required for local development
+NEXT_PUBLIC_API_URL=your-api-url
+```
+
+## 📚 Scripts
+
+```bash
+npm run dev          # Start development server
+npm run build       # Build for production
+npm run start       # Start production server
+npm test           # Run tests
+npm run docker:up  # Start Docker containers
+```
 
 ## 📱 Responsive Design
 
-The application is fully responsive and optimized for:
-- Mobile devices (320px and up)
-- Tablets (768px and up)
-- Desktops (1024px and up)
-- Large screens (1280px and up)
+- Mobile-first approach
+- Breakpoints:
+  - sm: 640px
+  - md: 768px
+  - lg: 1024px
+  - xl: 1280px
 
-## 🧪 Testing
+## 🏆 Features Implemented
 
-```bash
-npm test
-```
-
-## 📄 License
-
-This project is licensed under the MIT License.
-
----
-
-Built with ❤️ by [Arjun Maurya]
+- [x] Car listings with search
+- [x] Advanced filtering system
+- [x] Image carousel
+- [x] Responsive design
+- [x] Unit tests
+- [x] Docker support
+- [x] Vercel deployment

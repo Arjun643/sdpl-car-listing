@@ -6,12 +6,17 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "test": "jest",
+    "docker:build": "docker build -t sdpl-car-listing .",
+    "docker:run": "docker run -p 3000:3000 sdpl-car-listing",
+    "docker:up": "docker-compose up --build",
+    "docker:prod": "docker-compose -f docker-compose.prod.yml up --build -d"
   },
   "dependencies": {
     "next": "15.1.6",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "react-js-pagination": "^3.0.3"
   },
   "devDependencies": {
@@ -23,6 +28,11 @@
     "eslint-config-next": "15.1.6",
     "postcss": "^8",
     "tailwindcss": "^3.4.1",
-    "typescript": "^5"
+    "typescript": "^5",
+    "@testing-library/jest-dom": "^6.4.2",
+    "@testing-library/react": "^14.2.1",
+    "@types/jest": "^29.5.12",
+    "jest": "^29.7.0",
+    "jest-environment-jsdom": "^29.7.0"
   }
 }
