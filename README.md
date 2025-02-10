@@ -39,7 +39,7 @@ A modern, responsive web application for browsing and filtering car listings, bu
 
 ## 🛠️ Technical Stack
 
-- **Frontend Framework**: Next.js 13 (App Router)
+- **Frontend Framework**: Next.js 15 (App Router)
 - **Language**: TypeScript
 - **Styling**: Tailwind CSS
 - **Pagination**: react-js-pagination
@@ -88,7 +88,7 @@ The application follows a clean and modular architecture:
 
 ```
 src/
-├── app/                 # Next.js 13 app router pages
+├── app/                 # Next.js 15 app router pages
 │   ├── page.tsx        # Home page with pagination
 │   └── car/[id]/       # Individual car details
 ├── components/         
@@ -235,4 +235,4 @@ This project is licensed under the MIT License.
 
 ---
 
-Built with ❤️ by [Arjun Yadav]
+Built with ❤️ by [Arjun Maurya]
